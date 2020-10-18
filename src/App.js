@@ -115,30 +115,32 @@ const App = () => {
             </section>
             <section>
               {jobList.map((el, i) =>
-                <ul key={i} onClick={() => { setToggle3(!toggle3) }} id='jobs'>
-                  <li>{el.companyName}</li>
-                  <li>{el.jobTitle}</li>
-                  {toggle3 ? (
-                    <div>
-                      <button
-                        onClick={() => { setToggle4(!toggle4) }}><TrashIcon></TrashIcon>
-                      </button>
-                      <p>added {minutes} minutes ago</p>
-                    </div>
-                  ) : (null
-                    )}
-                  {toggle4 ? (
-                    <div>
-                      <h4>Delete Job</h4>
-                      <p>Are you sure you want to delete this job?</p>
-                      <div>
-                        <button onClick={() => deleteJob(el.id)}>Delete</button>
-                        <button onClick={() => { setToggle3(!toggle3) || setToggle4(!toggle4) }}>Cancel</button>
+                <div className='jobs-box'>
+                  <ul key={i} onClick={() => { setToggle3(!toggle3) }} className='jobs'>
+                    <li>{el.companyName}</li>
+                    <li>{el.jobTitle}</li>
+                    {toggle3 ? (
+                      <div className='tools'>
+                        <button
+                          onClick={() => { setToggle4(!toggle4) }}><TrashIcon></TrashIcon>
+                        </button>
+                        <p>added {minutes} minutes ago</p>
                       </div>
-                    </div>
-                  ) : (null
-                    )}
-                </ul>
+                    ) : (null
+                      )}
+                    {toggle4 ? (
+                      <div>
+                        <h4>Delete Job</h4>
+                        <p>Are you sure you want to delete this job?</p>
+                        <div>
+                          <button onClick={() => deleteJob(el.id)}>Delete</button>
+                          <button onClick={() => { setToggle3(!toggle3) || setToggle4(!toggle4) }}>Cancel</button>
+                        </div>
+                      </div>
+                    ) : (null
+                      )}
+                  </ul>
+                </div>
               )}
             </section>
           </div>
