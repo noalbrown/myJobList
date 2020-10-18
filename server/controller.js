@@ -1,4 +1,5 @@
 let jobList = require('./jobList.json');
+let id = jobList[jobList.length - 1].id + 1
 
 module.exports = {
   getJobList: (req, res) => {

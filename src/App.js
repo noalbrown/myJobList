@@ -6,7 +6,7 @@ import PlusIcon from './icons/PlusIcon';
 import TrashIcon from './icons/TrashIcon';
 import './App.css';
 
-const App = (props) => {
+const App = () => {
   const [toggle, setToggle] = useState(false);
   const [toggle2, setToggle2] = useState(false);
   const [toggle3, setToggle3] = useState(false);
@@ -40,13 +40,12 @@ const App = (props) => {
 
   const addJob = () => {
     axios
-      .post("/auth/addJob", {
+      .post('/auth/addJob', {
         companyNameInput,
         jobTitleInput
       })
       .then((res) => {
         setJobList(res.data)
-        setToggle2(false)
       })
       .catch((err) => {
         alert("Upload Error");
@@ -75,7 +74,7 @@ const App = (props) => {
               <h6>Job Count Bonus</h6>
               <button onClick={() => { setToggle2(!toggle2) }}><PlusIcon></PlusIcon></button>
               {toggle2 ? (
-                <form>
+                <form onSubmit={addJob}>
                   <input
                     name='companyName'
                     type='text'
@@ -88,7 +87,7 @@ const App = (props) => {
                     value={jobTitleInput}
                     placeholder='Job Title'
                     onChange={handleJobTitleInput} />
-                  <button onClick={addJob}>Continue</button>
+                  <button type='submit'>Continue</button>
                 </form>
               ) : (null
                 )}
