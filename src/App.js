@@ -4,6 +4,8 @@ import DownIcon from './icons/DownIcon';
 import WandIcon from './icons/WandIcon';
 import PlusIcon from './icons/PlusIcon';
 import TrashIcon from './icons/TrashIcon';
+import MagnifyIcon from './icons/MagnifyIcon';
+import BagIcon from './icons/BagIcon';
 import './App.css';
 
 const App = () => {
@@ -74,18 +76,24 @@ const App = () => {
                 <div className='form-box'>
                   <form className='add-form' onSubmit={addJob}>
                     <label>Add a job</label>
-                    <input
-                      name='companyName'
-                      type='text'
-                      value={companyNameInput}
-                      placeholder='Company Name'
-                      onChange={e => setCompanyNameInput(e.target.value)} />
-                    <input
-                      name='jobTitle'
-                      type='text'
-                      value={jobTitleInput}
-                      placeholder='Job Title'
-                      onChange={e => setJobTitleInput(e.target.value)} />
+                    <div>
+                      <input
+                        name='companyName'
+                        type='text'
+                        value={companyNameInput}
+                        placeholder='Company Name'
+                        onChange={e => setCompanyNameInput(e.target.value)} />
+                      <p><MagnifyIcon color='lightGrey' height='30px' width='30px'></MagnifyIcon></p>
+                    </div>
+                    <div>
+                      <input
+                        name='jobTitle'
+                        type='text'
+                        value={jobTitleInput}
+                        placeholder='Job Title'
+                        onChange={e => setJobTitleInput(e.target.value)} />
+                      <p><BagIcon color='lightGrey' height='30px' width='30px'></BagIcon></p>
+                    </div>
                     <button type='submit'>Continue</button>
                   </form>
                 </div>
