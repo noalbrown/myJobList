@@ -17,7 +17,7 @@ const App = (props) => {
 
   useEffect(() => {
     axios
-      .get("/api/jobList")
+      .get('/api/jobList')
       .then((res) => {
         setJobList(res.data)
       })
@@ -40,7 +40,7 @@ const App = (props) => {
 
   const addJob = () => {
     axios
-      .post("/auth/register", {
+      .post("/auth/addJob", {
         companyNameInput,
         jobTitleInput
       })
