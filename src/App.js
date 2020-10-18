@@ -16,6 +16,8 @@ const App = () => {
   const [jobList, setJobList] = useState([]);
   const [jobTitleInput, setJobTitleInput] = useState('');
   const [companyNameInput, setCompanyNameInput] = useState('');
+  const [minutes, setMinutes] = useState(0);
+  const [timer, setTimer] = useState(false);
 
   useEffect(() => {
     axios
@@ -26,8 +28,15 @@ const App = () => {
       .catch((err) => {
         console.log(err);
       });
+
+    let interval = null;
+    interval = setInterval(() => {
+      setMinutes(minutes => minutes + 1);
+    }, 60000);
+
+    return () => interval;
     // eslint-disable-next-line
-  }, []);
+  }, [minutes]);
 
   const deleteJob = (id) => {
     axios
@@ -48,13 +57,17 @@ const App = () => {
       })
       .then((res) => {
         setJobList(res.data)
+        timerToggle()
       })
       .catch((err) => {
         alert("Upload Error");
       });
   };
 
-  console.log(companyNameInput)
+  function timerToggle() {
+    setTimer(timer);
+  }
+
   return (
     <div className="App">
       <header>
@@ -106,9 +119,12 @@ const App = () => {
                   <li>{el.companyName}</li>
                   <li>{el.jobTitle}</li>
                   {toggle3 ? (
-                    <button
-                      onClick={() => { setToggle4(!toggle4) }}><TrashIcon></TrashIcon>
-                    </button>
+                    <div>
+                      <button
+                        onClick={() => { setToggle4(!toggle4) }}><TrashIcon></TrashIcon>
+                      </button>
+                      <p>added {minutes} minutes ago</p>
+                    </div>
                   ) : (null
                     )}
                   {toggle4 ? (
