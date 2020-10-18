@@ -69,23 +69,26 @@ const App = () => {
                   <h6>{jobList.length} JOBS</h6>
                 </div>
               </div>
-              <button onClick={() => { setToggle2(!toggle2) }}><PlusIcon></PlusIcon></button>
+              <button className='add-button' onClick={() => { setToggle2(!toggle2) }}><PlusIcon color='gray' height="30px" width='30px'></PlusIcon></button>
               {toggle2 ? (
-                <form onSubmit={addJob}>
-                  <input
-                    name='companyName'
-                    type='text'
-                    value={companyNameInput}
-                    placeholder='Company Name'
-                    onChange={e => setCompanyNameInput(e.target.value)} />
-                  <input
-                    name='jobTitle'
-                    type='text'
-                    value={jobTitleInput}
-                    placeholder='Job Title'
-                    onChange={e => setJobTitleInput(e.target.value)} />
-                  <button type='submit'>Continue</button>
-                </form>
+                <div className='form-box'>
+                  <form className='add-form' onSubmit={addJob}>
+                    <label>Add a job</label>
+                    <input
+                      name='companyName'
+                      type='text'
+                      value={companyNameInput}
+                      placeholder='Company Name'
+                      onChange={e => setCompanyNameInput(e.target.value)} />
+                    <input
+                      name='jobTitle'
+                      type='text'
+                      value={jobTitleInput}
+                      placeholder='Job Title'
+                      onChange={e => setJobTitleInput(e.target.value)} />
+                    <button type='submit'>Continue</button>
+                  </form>
+                </div>
               ) : (null
                 )}
             </section>
