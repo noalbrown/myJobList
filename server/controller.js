@@ -19,8 +19,11 @@ module.exports = {
 
   addJob: (req, res) => {
     const { companyName, jobTitle } = req.body
+    console.log(req.body)
     let newJobListing = { id, companyName, jobTitle }
+    console.log(jobList)
     jobList.push(newJobListing)
+    console.log(jobList)
     id++
     if (!newJobListing) {
       return res.status(404).send('Did Not Work')

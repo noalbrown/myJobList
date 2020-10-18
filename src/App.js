@@ -12,8 +12,8 @@ const App = () => {
   const [toggle3, setToggle3] = useState(false);
   const [toggle4, setToggle4] = useState(false);
   const [jobList, setJobList] = useState([]);
-  const [jobTitleInput, setJobTitle] = useState('');
-  const [companyNameInput, setCompanyName] = useState('');
+  const [jobTitleInput, setJobTitleInput] = useState('');
+  const [companyNameInput, setCompanyNameInput] = useState('');
 
   useEffect(() => {
     axios
@@ -40,9 +40,9 @@ const App = () => {
 
   const addJob = () => {
     axios
-      .post('/auth/addJob', {
-        companyNameInput,
-        jobTitleInput
+      .post('/api/addJob', {
+        companyName: companyNameInput,
+        jobTitle: jobTitleInput
       })
       .then((res) => {
         setJobList(res.data)
@@ -52,26 +52,23 @@ const App = () => {
       });
   };
 
-  const handleJobTitleInput = (event) => {
-    const { value } = event.target;
-    setJobTitle(value);
-  };
-
-  const handleCompanyNameInput = (event) => {
-    const { value } = event.target;
-    setCompanyName(value);
-  };
-
-  console.log(jobList)
+  console.log(companyNameInput)
   return (
     <div className="App">
-      <button onClick={() => { setToggle(!toggle) }}><DownIcon></DownIcon>Pathrise Web Developer Test</button>
-      <div>
+      <header>
+        <button id='app-button' onClick={() => { setToggle(!toggle) }}><pre><DownIcon height='20px' width='20px' color='gray'></DownIcon>     Pathrise Web Developer Test</pre></button>
+      </header>
+      <div className='toggle1-box'>
         {toggle ? (
           <div>
             <section>
-              <h2><WandIcon></WandIcon>WISHLIST</h2>
-              <h6>Job Count Bonus</h6>
+              <div className='wishlist-box'>
+                <p><WandIcon color='gray'></WandIcon></p>
+                <div className='wishlist-inner'>
+                  <h2>WISHLIST</h2>
+                  <h6>{jobList.length} JOBS</h6>
+                </div>
+              </div>
               <button onClick={() => { setToggle2(!toggle2) }}><PlusIcon></PlusIcon></button>
               {toggle2 ? (
                 <form onSubmit={addJob}>
@@ -80,13 +77,13 @@ const App = () => {
                     type='text'
                     value={companyNameInput}
                     placeholder='Company Name'
-                    onChange={handleCompanyNameInput} />
+                    onChange={e => setCompanyNameInput(e.target.value)} />
                   <input
                     name='jobTitle'
                     type='text'
                     value={jobTitleInput}
                     placeholder='Job Title'
-                    onChange={handleJobTitleInput} />
+                    onChange={e => setJobTitleInput(e.target.value)} />
                   <button type='submit'>Continue</button>
                 </form>
               ) : (null

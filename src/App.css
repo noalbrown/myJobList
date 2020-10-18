@@ -43,3 +43,99 @@ table {
 }
 
 /* Reset ^ */
+
+.App {
+	height:100vh;
+	width: 100vw;
+	background: whitesmoke;
+}
+
+header {
+	height: 11%;
+	width: 100%;
+	background: white;
+}
+
+#app-button {
+	height:75%;
+	width: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	top: 10px;
+	left: 10px;
+	background: transparent;
+	border:solid 1px lightgray;
+	border-radius: 4px;
+}
+
+#app-button pre {
+	display: flex;
+	align-items: center;
+	font-weight: 900;
+	font-size: 0.9rem;
+	font-stretch: condensed;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: rgb(8, 8, 65);
+}
+
+.toggle1-box {
+	height: 89%;
+	width: 30%;
+	overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.toggle1-box::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
+
+.toggle1-box:hover {
+	
+}
+
+.toggle1-box > div {
+	height:100%;
+	width: 100%;
+}
+
+.toggle1-box > div > section {
+	height:30%;
+	width: 100%;
+}
+
+.wishlist-box {
+	height: 80%;
+	width: 100%;
+	display: flex;
+}
+
+.wishlist-box p {
+	height: 100%;
+	width:35%;
+	position: relative;
+	top: 50px;
+	left:35px;
+}
+
+.wishlist-inner {
+	margin: auto 0 auto 0;
+}
+
+.wishlist-inner h2 {
+	font-weight: bolder;
+	font-size: 1.2rem;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: rgb(8, 8, 65);
+	padding:10px 0 10px 0;
+}
+
+.wishlist-inner h6 {
+	color: gray;
+	padding-left: 20px;
+	font-size: 1.2rem;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
