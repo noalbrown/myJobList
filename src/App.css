@@ -233,24 +233,126 @@ header {
 .jobs {
 	height:100%;
 	width:100%;
-	background: blue;
+	background: rgb(129, 158, 250);
 	border-radius: 4px;
+	display: flex;
 }
 
-.jobs li {
-	position: relative;
-	top: 20px;
-	left: 50px;
+.display {
+	height: 100%;
+	width: 50%;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	color: white;
+	padding-left: 50px;
 }
 
-.jobs :first-child {
+.display li:first-child {
 	font-size: 1.25rem;
-	padding-bottom: 10px;
+	font-weight: bold;
+	padding: 20px 0 10px 0;
 }
 
 .tools {
 	height: 100%;
-	width: 100%;
+	width: 50%;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 0.8rem;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+.tools button {
+	height: 30px;
+	width: 30px;
+	background-color: rgba(0, 0, 0, 0.3);
+	border: none;
+	border-radius: 50%;
+	margin: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tools button:hover{
+	background-color: white;
+}
+
+.tools button svg {
+	color: white;
+}
+
+.tools button svg:hover {
+	color: black;
+}
+
+.tools p {
+	padding: 5px;
+}
+
+.delete-container {
+	height:100vh;
+	width: 100vw;
+	position: absolute;
+	top:0;
+	left: 0;
+	background: rgb(164, 164, 185);
+	opacity: 0.9;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.delete-box {
+	height: 50%;
+	width: 30%;
+	background: white;
+	position: relative;
+	bottom:90px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+}
+
+.delete-box h4 {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 1.5rem;
+	font-weight: 600;
+	color:rgb(5, 5, 43);
+}
+
+.delete-box p {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 600;
+	width: 80%;
+	text-align: center;
+	color: gray;
+	padding: 10px 0 30px 0;
+}
+
+.delete-box div {
+	height: 12%;
+	width: 80%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.delete-box div button {
+	width: 30%;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.delete-box div button:first-child {
+	background-color: rgb(161, 29, 212);
+}
+
+.delete-box div button:nth-child(2) {
+	background-color: rgb(164, 164, 185);
 }

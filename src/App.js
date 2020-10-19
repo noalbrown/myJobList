@@ -34,9 +34,8 @@ const App = () => {
       setMinutes(minutes => minutes + 1);
     }, 60000);
 
-    return () => interval;
     // eslint-disable-next-line
-  }, [minutes]);
+  }, []);
 
   const deleteJob = (id) => {
     axios
@@ -115,28 +114,32 @@ const App = () => {
             </section>
             <section>
               {jobList.map((el, i) =>
-                <div className='jobs-box'>
-                  <ul key={i} onClick={() => { setToggle3(!toggle3) }} className='jobs'>
-                    <li>{el.companyName}</li>
-                    <li>{el.jobTitle}</li>
+                <div key={i} className='jobs-box'>
+                  <ul onClick={() => { setToggle3(!toggle3) }} className='jobs'>
+                    <div className='display'>
+                      <li>{el.companyName}</li>
+                      <li>{el.jobTitle}</li>
+                    </div>
                     {toggle3 ? (
                       <div className='tools'>
                         <button
-                          onClick={() => { setToggle4(!toggle4) }}><TrashIcon></TrashIcon>
+                          onClick={() => { setToggle4(!toggle4) }}><TrashIcon height='20px' width='20px'></TrashIcon>
                         </button>
                         <p>added {minutes} minutes ago</p>
                       </div>
                     ) : (null
                       )}
                     {toggle4 ? (
-                      <div>
-                        <h4>Delete Job</h4>
-                        <p>Are you sure you want to delete this job?</p>
-                        <div>
-                          <button onClick={() => deleteJob(el.id)}>Delete</button>
-                          <button onClick={() => { setToggle3(!toggle3) || setToggle4(!toggle4) }}>Cancel</button>
+                      <section className='delete-container'>
+                        <div className='delete-box'>
+                          <h4>Delete Job</h4>
+                          <p>Are you sure you want to delete this job?</p>
+                          <div>
+                            <button onClick={() => deleteJob(el.id)}>Delete</button>
+                            <button onClick={() => { setToggle3(!toggle3) || setToggle4(!toggle4) }}>Cancel</button>
+                          </div>
                         </div>
-                      </div>
+                      </section>
                     ) : (null
                       )}
                   </ul>
