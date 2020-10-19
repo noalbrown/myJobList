@@ -70,6 +70,10 @@ header {
 	border-radius: 4px;
 }
 
+#app-button:focus {
+	outline:none;
+}
+
 #app-button pre {
 	display: flex;
 	align-items: center;
@@ -148,6 +152,10 @@ header {
 	justify-content: center;
 }
 
+.add-button:focus {
+	outline:none;
+}
+
 .form-box {
 	height:100vh;
 	width: 100vw;
@@ -220,6 +228,10 @@ header {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.add-form button:focus {
+	outline:none;
+}
+
 .toggle1-box > div > section:nth-child(2) {
 	height: 100vh;
 }
@@ -278,6 +290,10 @@ header {
 
 .tools button:hover{
 	background-color: white;
+}
+
+.tools button:focus {
+	outline:none;
 }
 
 .tools button svg {
@@ -349,10 +365,18 @@ header {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.delete-box div button:focus {
+	outline:none;
+}
+
 .delete-box div button:first-child {
 	background-color: rgb(161, 29, 212);
 }
 
 .delete-box div button:nth-child(2) {
 	background-color: rgb(164, 164, 185);
+}
+
+* button:hover {
+	cursor: pointer;
 }
